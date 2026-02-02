@@ -1,0 +1,42 @@
+id: homework_bulk_loader
+namespace: zoomcamp
+description: Load all data needed for homework questions 3, 4 and 5
+
+tasks:
+  # Question 3: Yellow Taxi 2020 - all 12 months
+  - id: load_yellow_2020_all_months
+    type: io.kestra.plugin.core.flow.EachSequential
+    value: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    tasks:
+      - id: yellow_2020_subflow
+        type: io.kestra.plugin.core.flow.Subflow
+        namespace: zoomcamp
+        flowId: home_work_postgres_taxi
+        inputs:
+          taxi: yellow
+          year: "2020"
+          month: "{{ taskrun.value }}"
+
+  # Question 4: Green Taxi 2020 - all 12 months
+  - id: load_green_2020_all_months
+    type: io.kestra.plugin.core.flow.EachSequential
+    value: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    tasks:
+      - id: green_2020_subflow
+        type: io.kestra.plugin.core.flow.Subflow
+        namespace: zoomcamp
+        flowId: home_work_postgres_taxi
+        inputs:
+          taxi: green
+          year: "2020"
+          month: "{{ taskrun.value }}"
+
+  # Question 5: Yellow Taxi March 2021
+  - id: load_yellow_march_2021
+    type: io.kestra.plugin.core.flow.Subflow
+    namespace: zoomcamp
+    flowId: home_work_postgres_taxi
+    inputs:
+      taxi: yellow
+      year: "2021"
+      month: "03"
