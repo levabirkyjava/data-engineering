@@ -1,0 +1,17 @@
+name: nyc_yellow_taxi_pipeline
+schedule: "@daily"
+
+variables:
+  taxi_type:
+    type: string
+    default: "yellow"
+  start_date:
+    type: string
+    default: "2024-01-01"
+  end_date:
+    type: string
+    default: "2024-01-31"
+
+default_parameters:
+  start_date: "{{ variables.start_date }}"
+  end_date: "{{ variables.end_date }}"
