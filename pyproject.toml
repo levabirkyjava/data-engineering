@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "chicago-taxi-analytics"
+version = "0.1.0"
+description = "Course project scaffold for Chicago Taxi data pipeline"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "db-dtypes>=1.2",
+  "google-cloud-bigquery>=3.25",
+  "pandas>=2.2",
+  "plotly>=5.22",
+  "streamlit>=1.36",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_chicago_taxi_trips
+    columns:
+      - name: trip_id
+        tests: [not_null]
+      - name: trip_date
+        tests: [not_null]
+      - name: payment_type
+        tests: [not_null]
+
+  - name: mart_trips_daily
+    columns:
+      - name: trip_date
+        tests: [not_null, unique]
+
+  - name: mart_payment_type_daily
+    columns:
+      - name: trip_date
+        tests: [not_null]
+      - name: payment_type
+        tests: [not_null]
+

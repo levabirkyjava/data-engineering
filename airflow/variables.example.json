@@ -1,0 +1,6 @@
+{
+  "gcp_project_id": "your-gcp-project-id",
+  "raw_dataset": "raw",
+  "lake_bucket": "your-unique-chicago-taxi-lake-bucket"
+}
+

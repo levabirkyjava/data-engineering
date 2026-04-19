@@ -1,0 +1,7 @@
+pytest>=8.0
+streamlit>=1.36
+google-cloud-bigquery>=3.25
+db-dtypes>=1.2
+pandas>=2.2
+plotly>=5.22
+
